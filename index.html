@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 简明指南与访问提醒</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #faf8f5;
+      font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+      color: #3e3a35;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fefcf9;
+      padding: 3rem 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.04);
+    }
+
+    /* hero 区 */
+    .hero {
+      text-align: center;
+      padding: 2.8rem 0 2.2rem 0;
+      border-bottom: 1px solid #e6dfd6;
+      margin-bottom: 2.8rem;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #2f2a26;
+    }
+    .hero .sub {
+      font-size: 1rem;
+      color: #8b8279;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    /* 引用块 / 提示框 */
+    .notice-box {
+      background: #f3ede5;
+      padding: 1.8rem 2rem;
+      border-radius: 16px;
+      margin: 2rem 0;
+      border-left: 5px solid #b3a396;
+      font-size: 0.98rem;
+      color: #4d453e;
+    }
+    .notice-box strong {
+      color: #3e342c;
+    }
+
+    /* 区块标题 */
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin: 2.2rem 0 1rem 0;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px dashed #ddd6cc;
+      color: #3e342c;
+    }
+
+    /* 优势区 卡片风格 */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.3rem;
+      margin: 1.8rem 0;
+    }
+    .card {
+      flex: 1 1 200px;
+      background: #f9f5f0;
+      padding: 1.4rem 1.2rem;
+      border-radius: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .card h3 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #4f453d;
+    }
+    .card p {
+      font-size: 0.92rem;
+      color: #605851;
+    }
+
+    /* FAQ 摘要 */
+    .faq-list {
+      margin: 1.8rem 0;
+    }
+    .faq-item {
+      margin-bottom: 1.2rem;
+      border-bottom: 1px solid #ece6de;
+      padding-bottom: 1rem;
+    }
+    .faq-q {
+      font-weight: 500;
+      color: #4f453d;
+      margin-bottom: 0.25rem;
+    }
+    .faq-a {
+      font-size: 0.94rem;
+      color: #695f56;
+      padding-left: 0.8rem;
+      border-left: 2px solid #d6cec2;
+    }
+
+    /* 链接底座 */
+    .footer-links {
+      margin-top: 3rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #e6dfd6;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.5rem;
+      font-size: 0.92rem;
+    }
+    .footer-links a {
+      color: #7a6e62;
+      text-decoration: none;
+      border-bottom: 1px dotted #c4bab0;
+      transition: border-color 0.2s;
+    }
+    .footer-links a:hover {
+      border-bottom: 1px solid #7a6e62;
+    }
+
+    /* 正文段落 */
+    p {
+      margin-bottom: 1rem;
+    }
+    a {
+      color: #7a6e62;
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+      text-decoration-style: dotted;
+    }
+    a:hover {
+      color: #3e342c;
+      text-decoration-style: solid;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .page {
+        padding: 2rem 1.2rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .cards {
+        flex-direction: column;
+      }
+      .card {
+        flex: 1 1 auto;
+      }
+      .notice-box {
+        padding: 1.2rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>爱游戏</h1>
+    <div class="sub">一份简明指南 · 一点访问提醒</div>
+  </div>
+
+  <!-- 开篇叙述 -->
+  <p>
+    在信息散落的网络里，找到一个专注、稳定的内容站点并不容易。<a href="https://i-game-main.com.cn">爱游戏</a> 
+    正是这样一个地方——它不追逐浮夸的标题，也不堆砌无用的装饰，而是试图以更安静的方式，为常来的读者提供一些值得阅读的游戏相关内容。
+    如果你恰好路过，不妨停下来，看看这里的叙事节奏是否合你的口味。
+  </p>
+
+  <!-- 提示框：访问提醒 -->
+  <div class="notice-box">
+    <strong>访问提醒</strong><br>
+    由于网络环境与站点维护状态时常变化，如果你在某个时段无法打开 
+    <a href="https://i-game-main.com.cn">爱游戏</a>，可以先稍后再试，或者检查一下自己的网络连接是否稳定。
+    多数临时无法访问的情况，都与本地网络或 DNS 缓存有关。
+  </div>
+
+  <!-- 优势区 -->
+  <div class="section-title">这里有什么不一样</div>
+  <div class="cards">
+    <div class="card">
+      <h3>内容不赶潮流</h3>
+      <p>不追热点，不写速报。更倾向于整理、回顾与沉淀，让文字在发布后依然值得重读。</p>
+    </div>
+    <div class="card">
+      <h3>界面清爽</h3>
+      <p>没有弹窗干扰，也没有复杂的导航迷宫。打开页面就是内容本身，阅读体验尽量回归纸张的质感。</p>
+    </div>
+    <div class="card">
+      <h3>更新有序</h3>
+      <p>更新频率不高，但每次更新都会保持一定的完成度。你不需要频繁刷新，来了就能看到完整的一篇。</p>
+    </div>
+  </div>
+
+  <!-- 说明区 / 场景 -->
+  <div class="section-title">适合什么时候打开</div>
+  <p>
+    这个站点更适合在安静的时段访问——比如傍晚休息前，或者周末的午后。
+    你不必带着“一定要读完什么”的负担，随意翻翻，遇到感兴趣的话题再细读就好。
+    也推荐在桌面浏览器上打开，排版会呈现出更好的呼吸感。
+  </p>
+  <p>
+    另外，如果你觉得直接输入域名不太方便，可以在书签栏里收藏 
+    <a href="https://i-game-main.com.cn">爱游戏</a>，下次想回来时就能直接点开。
+  </p>
+
+  <!-- FAQ 摘要 -->
+  <div class="section-title">常见疑问摘要</div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">▸ 站点主要写什么类型的内容？</div>
+      <div class="faq-a">以游戏相关的随笔、回顾、心得为主，偶尔也会有一些非正式的小考据。不聚焦新游评测，更偏向个人视角的记录。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">▸ 页面打开很慢怎么办？</div>
+      <div class="faq-a">可以先检查本地网络，或者尝试换个时段访问。网站本身没有加载大量图片或脚本，通常不会太慢。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">▸ 是否接受投稿或建议？</div>
+      <div class="faq-a">目前暂未开放投稿通道，但如果你有想讨论的话题，可以通过站点底部链接找到联系方式（反馈页面）。</div>
+    </div>
+  </div>
+  <p style="font-size:0.93rem; color:#7a7269;">
+    更多问题可以到站内浏览相关内容，或者直接访问 
+    <a href="https://i-game-main.com.cn">爱游戏</a> 首页，通常能找到你想要的入口。
+  </p>
+
+  <!-- 底部链接 -->
+  <div class="footer-links">
+    <span><a href="https://i-game-main.com.cn">爱游戏</a> · 首页</span>
+    <span><a href="#">文章归档</a></span>
+    <span><a href="#">关于</a></span>
+    <span><a href="#">联系方式</a></span>
+    <span style="color:#b5aca2; margin-left:auto; font-size:0.85rem;">© 2025</span>
+  </div>
+
+</div>
+</body>
+</html>

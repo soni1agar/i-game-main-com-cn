@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://soni1agar.github.io/i-game-main-com-cn/sitemap.xml
