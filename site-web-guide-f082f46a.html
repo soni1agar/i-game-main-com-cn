@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>JRS直播 · 赛事信息索引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f1f9fc;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1b2c35;
+            padding: 1.5rem 1rem;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        /* hero 开场 */
+        .hero-tag {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: #2a7d8c;
+            background: #d9f0f5;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .opening {
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1.2rem;
+            color: #0b3b44;
+            max-width: 700px;
+        }
+
+        .opening span {
+            background: linear-gradient(135deg, #2a9d8f, #2b7c8c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .lead-text {
+            font-size: 1.1rem;
+            color: #2f4b55;
+            margin-bottom: 2rem;
+            padding: 0.2rem 0;
+            border-left: 4px solid #2a9d8f;
+            padding-left: 1rem;
+            max-width: 640px;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            margin: 2rem 0 2.5rem;
+        }
+
+        @media (min-width: 560px) {
+            .card-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 820px) {
+            .card-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 8px 18px rgba(0, 40, 50, 0.06);
+            border: 1px solid #daecf0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px rgba(0, 60, 70, 0.08);
+        }
+
+        .card em {
+            font-style: normal;
+            display: inline-block;
+            background: #e0f2f5;
+            color: #166672;
+            font-weight: 600;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+            margin-bottom: 0.7rem;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #0b3b44;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            font-size: 0.94rem;
+            color: #395a64;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: #f0fafb;
+            color: #1c6b78;
+            font-size: 0.7rem;
+            padding: 0.15rem 0.6rem;
+            border-radius: 30px;
+            margin-top: 0.5rem;
+            margin-right: 0.3rem;
+            border: 1px solid #c4e3e9;
+        }
+
+        /* 承接段落 */
+        .bridge {
+            margin: 1.8rem 0 2.2rem;
+            padding: 1.5rem;
+            background: #ffffffd9;
+            backdrop-filter: blur(2px);
+            border-radius: 28px;
+            box-shadow: 0 4px 12px rgba(34, 85, 95, 0.03);
+            border: 1px solid #cce6eb;
+        }
+
+        .bridge p {
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .bridge a {
+            color: #1b7e8e;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid #9ad1db;
+            transition: border 0.2s;
+        }
+
+        .bridge a:hover {
+            border-bottom-color: #1b7e8e;
+        }
+
+        .bridge .highlight {
+            background: #e2f3f6;
+            padding: 0.1rem 0.3rem;
+            border-radius: 6px;
+        }
+
+        .insight-list {
+            margin: 1.2rem 0 0.5rem;
+            list-style: none;
+        }
+
+        .insight-list li {
+            margin-bottom: 0.7rem;
+            padding-left: 1.8rem;
+            position: relative;
+            font-size: 0.98rem;
+            color: #1b3c45;
+        }
+
+        .insight-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #2a9d8f;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* 温和结尾 */
+        .gentle-end {
+            margin-top: 2.8rem;
+            padding: 1.8rem 1.5rem;
+            background: linear-gradient(145deg, #e6f4f7, #f3fbfd);
+            border-radius: 40px 16px 40px 16px;
+            border-left: 6px solid #2a9d8f;
+            color: #1d3e48;
+        }
+
+        .gentle-end p {
+            font-size: 0.96rem;
+            max-width: 600px;
+        }
+
+        .gentle-end .small-note {
+            font-size: 0.8rem;
+            color: #4a717c;
+            margin-top: 0.8rem;
+            border-top: 1px dashed #b3d7de;
+            padding-top: 0.8rem;
+        }
+
+        .footnote {
+            margin-top: 2.5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #69929e;
+            border-top: 1px solid #cfe2e7;
+            padding-top: 1.5rem;
+        }
+
+        .footnote a {
+            color: #1b7e8e;
+            text-decoration: none;
+            border-bottom: 1px dotted #85bcc7;
+        }
+
+        .footnote a:hover {
+            border-bottom-style: solid;
+        }
+
+        .badge-soft {
+            background: #ccecf2;
+            color: #0f535f;
+            padding: 0.1rem 0.6rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+        }
+
+        /* 移动端友好微调 */
+        @media (max-width: 480px) {
+            .opening {
+                font-size: 1.55rem;
+            }
+            .card {
+                padding: 1.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 开场短句 -->
+        <div class="hero-tag">⚡ 资料整理 · 信息索引</div>
+        <div class="opening">
+            一场赛事背后，<br>是无数条数据流的<span>交汇整理</span>。
+        </div>
+        <div class="lead-text">
+            从赛程、比分、阵容到转播线索，把碎片化信息梳理成可追溯的脉络——<br>
+            这是 JRS直播 作为索引页一直坚持的整理方式。
+        </div>
+
+        <!-- 特点网格卡片 -->
+        <div class="card-grid">
+            <div class="card">
+                <em>① 聚合索引</em>
+                <h3>赛事时间线</h3>
+                <p>按联赛、日期、项目归类，提供结构化的赛程目录，方便回溯或前瞻。</p>
+                <span class="tag">多联赛</span>
+                <span class="tag">日期层级</span>
+            </div>
+            <div class="card">
+                <em>② 赛场数据快照</em>
+                <h3>基础数据整理</h3>
+                <p>比分、进球、换人、红黄牌等核心事件字段，以简明列表呈现，减少搜索成本。</p>
+                <span class="tag">实时摘要</span>
+                <span class="tag">事件流</span>
+            </div>
+            <div class="card">
+                <em>③ 信息源标注</em>
+                <h3>转播线索指引</h3>
+                <p>对于可公开获取的直播信号或图文追踪，标注来源类型与语言分类，辅助筛选。</p>
+                <span class="tag">语言分类</span>
+                <span class="tag">信号类型</span>
+            </div>
+        </div>
+
+        <!-- 承接段落：从资料整理视角展开 -->
+        <div class="bridge">
+            <p>
+                很多朋友在找某一场比赛的进展时，往往需要在不同页面之间反复跳转。实际上，一个稳定的信息索引能减少这种碎片感。
+                以 <a href="https://site-web-jrs.com">JRS直播</a> 为例，它把赛事基础信息（时间、对阵、阶段）以及可参考的观看线索整理在同一框架下，
+                让浏览者按需取用，而不是被动接收推送。
+            </p>
+            <p>
+                从资料维护角度来说，这种索引方式更接近“工具书”的逻辑：清晰、克制、不制造冗余。
+                下面是一些整理过程中常见的关注点：
+            </p>
+            <ul class="insight-list">
+                <li><span class="highlight">赛程准确性</span> — 核对官方时间与时区，避免因夏令时或临时改期造成误导。</li>
+                <li><span class="highlight">分级标签</span> — 对联赛、杯赛、友谊赛做类型标记，方便按兴趣筛选。</li>
+                <li><span class="highlight">可溯源性</span> — 每条信息都附带数据来源或参考链接，不凭空捏造。</li>
+                <li><span class="highlight">更新频次</span> — 依据赛事阶段调整刷新周期，重点比赛增加快照密度。</li>
+            </ul>
+        </div>
+
+        <!-- 温和结尾 + FAQ 摘要风格 -->
+        <div class="gentle-end">
+            <p style="font-weight: 500; margin-bottom: 0.6rem;">📋 FAQ 摘要 · 索引常见疑问</p>
+            <p>
+                <strong>Q：这些资料整理有固定模板吗？</strong><br>
+                A：没有。每项赛事的公开信息结构不同，索引会针对联赛特点做字段调整，例如杯赛会增加轮次与加时标记。
+            </p>
+            <p style="margin-top: 0.8rem;">
+                <strong>Q：索引页面会收录所有比赛吗？</strong><br>
+                A：以主流足球、篮球、电竞及部分综合赛事为主，覆盖范围会依据可用的公开数据源逐步优化。覆盖面在说明页中会标注。
+            </p>
+            <div class="small-note">
+                ⏳ 如果你也在寻找一种更安静的信息获取方式，不妨把 <a href="https://site-web-jrs.com" style="font-weight: 500;">JRS直播</a> 当作一个起点。
+                这里没有冗余弹窗，只有经过整理的赛事情报脉络。
+            </div>
+        </div>
+
+        <!-- 页脚占位 -->
+        <div class="footnote">
+            <span class="badge-soft">📋 索引说明</span> 内容基于公开赛事信息整理 · 页面仅供信息参考<br>
+            <span style="display: inline-block; margin-top: 0.4rem;">提供方：<a href="https://site-web-jrs.com">JRS直播</a> · 资料卡片 2025</span>
+        </div>
+    </div>
+</body>
+</html>
